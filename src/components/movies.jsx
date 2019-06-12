@@ -49,8 +49,6 @@ class Movies extends Component {
   };
 
   handleSort = sortColumn => {
-
-
     this.setState({ sortColumn });
   };
 
@@ -87,7 +85,7 @@ class Movies extends Component {
           <h5>Showing {filtered.length} movies in the Database</h5>
           <MoviesTable
             movies={movies}
-            sortColumn = {sortColumn}
+            sortColumn={sortColumn}
             onLike={this.handleLike}
             onDelete={this.handleDelete}
             onMoreInfo={this.handleMoreInfo}
