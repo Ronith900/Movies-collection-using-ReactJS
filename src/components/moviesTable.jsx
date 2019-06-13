@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Like from "./common/likes";
 import TableHeader from "./common/tableHeader";
 import TableBody from "./common/tableBody";
+import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class MoviesTable extends Component {
   columns = [
@@ -20,7 +22,11 @@ class MoviesTable extends Component {
         </a>
       )
     },
-    { path: "title", label: "Title" },
+    {
+      path: "title",
+      label: "Title",
+      content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+    },
     { path: "genre.name", label: "Genre" },
     { path: "numberInStock", label: "Stock" },
     { path: "dailyRentalRate", label: "Rate" },
@@ -31,19 +37,19 @@ class MoviesTable extends Component {
         <Like liked={movie["liked"]} onClick={() => this.props.onLike(movie)} />
       )
     },
-    {
-      label: "More Info",
-      key: "More Info",
-      content: movie => (
-        <button
-          type="button"
-          className="btn btn-outline-info btn-sm"
-          onClick={() => this.props.onMoreInfo(movie)}
-        >
-          View more{" "}
-        </button>
-      )
-    },
+    // {
+    //   label: "More Info",
+    //   key: "More Info",
+    //   content: movie => (
+    //     <button
+    //       type="button"
+    //       className="btn btn-outline-info btn-sm"
+    //       onClick={() => this.props.onMoreInfo(movie)}
+    //     >
+    //       View more{" "}
+    //     </button>
+    //   )
+    // },
     {
       label: "Actions",
       key: "Actions",
@@ -69,7 +75,7 @@ class MoviesTable extends Component {
     } = this.props;
 
     return (
-      <table className="table table-striped text-center">
+      <table className="table  table-striped text-center">
         <TableHeader
           columns={this.columns}
           sortColumn={sortColumn}
