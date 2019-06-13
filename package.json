@@ -6,8 +6,6 @@
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.10",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1"
   },
@@ -31,5 +29,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ronith900/Movies-collection-using-ReactJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ronith900/Movies-collection-using-ReactJS/issues"
+  },
+  "homepage": "https://github.com/Ronith900/Movies-collection-using-ReactJS#readme",
+  "devDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
