@@ -7,7 +7,7 @@ class MoviesTable extends Component {
   columns = [
     {
       label: "Trailer",
-      key:'Trailer',
+      key: "Trailer",
       content: movie => (
         <a href={movie["trailer"]}>
           <img
@@ -26,12 +26,14 @@ class MoviesTable extends Component {
     { path: "dailyRentalRate", label: "Rate" },
     {
       label: "Like",
-      key:'Like',
-      content: movie => (<Like liked={movie["liked"]} onClick={() => this.props.onLike(movie)} />)
+      key: "Like",
+      content: movie => (
+        <Like liked={movie["liked"]} onClick={() => this.props.onLike(movie)} />
+      )
     },
     {
       label: "More Info",
-      key:'More Info',
+      key: "More Info",
       content: movie => (
         <button
           type="button"
@@ -44,7 +46,7 @@ class MoviesTable extends Component {
     },
     {
       label: "Actions",
-      key:'Actions',
+      key: "Actions",
       content: movie => (
         <button
           type="button"
@@ -67,7 +69,7 @@ class MoviesTable extends Component {
     } = this.props;
 
     return (
-      <table className="table table-bordered table-striped text-center">
+      <table className="table table-striped text-center">
         <TableHeader
           columns={this.columns}
           sortColumn={sortColumn}
