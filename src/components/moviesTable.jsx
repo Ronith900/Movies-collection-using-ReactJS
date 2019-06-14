@@ -3,7 +3,7 @@ import Like from "./common/likes";
 import TableHeader from "./common/tableHeader";
 import TableBody from "./common/tableBody";
 import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+
 
 class MoviesTable extends Component {
   columns = [
@@ -67,8 +67,6 @@ class MoviesTable extends Component {
   render() {
     const {
       movies,
-      onDelete,
-      onLike,
       sortColumn,
       onSort
     } = this.props;

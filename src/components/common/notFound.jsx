@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React  from "react";
 
 const NotFound = () => {
   return <h2>Not Found</h2>;
