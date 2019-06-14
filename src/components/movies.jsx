@@ -70,8 +70,8 @@ class Movies extends Component {
         : allMovies;
 
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
-
     const movies = Paginate(sorted, currentPage, pageSize);
+
     return (
       <div className="row">
         <div className="col-2">

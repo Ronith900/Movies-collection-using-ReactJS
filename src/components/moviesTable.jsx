@@ -69,7 +69,6 @@ class MoviesTable extends Component {
       movies,
       onDelete,
       onLike,
-      onMoreInfo,
       sortColumn,
       onSort
     } = this.props;
