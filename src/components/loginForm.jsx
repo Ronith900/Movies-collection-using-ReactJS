@@ -1,12 +1,38 @@
 import React, { Component } from "react";
+import Input from "./common/input";
 
 class LoginForm extends Component {
+  state = {
+    account: { username: "", password: "" },
+    errors: {}
+  };
+
+  validate = () => {
+    const errors = {};
+    const { account } = this.state;
+
+    if (account.username.trim() === "")
+      errors.username = "Username is required";
+    if (account.password.trim() === "")
+      errors.password = "Password is required";
+
+    return Object.keys(errors).length === 0 ? null : errors;
+  };
   handleSubmit = e => {
     e.preventDefault();
     //Call the server to verify the user
-    console.log("Submited");
+
+    const errors = this.validate();
+    this.setState({ errors: errors || {} });
+  };
+
+  handleChange = ({ currentTarget: input }) => {
+    const account = { ...this.state.account };
+    account[input.name] = input.value;
+    this.setState({ account });
   };
   render() {
+    const { account, errors } = this.state;
     return (
       <div>
         <div className="col-md-3 offset-md-5">
@@ -14,14 +40,20 @@ class LoginForm extends Component {
         </div>
         <div className="col-md-3 offset-md-4">
           <form onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input autoFocus type="text" className="form-control" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input id="password" type="text" className="form-control" />
-            </div>
+            <Input
+              name="username"
+              label="Username"
+              value={account.username}
+              onChange={this.handleChange}
+              error={errors.username}
+            />
+            <Input
+              name="password"
+              label="Password"
+              value={account.password}
+              onChange={this.handleChange}
+              error={errors.password}
+            />
 
             <button className="btn btn-success">Login</button>
           </form>
